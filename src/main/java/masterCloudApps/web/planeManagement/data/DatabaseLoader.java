@@ -61,51 +61,51 @@ public class DatabaseLoader implements CommandLineRunner {
         airport2.setReviewSet(new HashSet<>(Arrays.asList(review2)));
         airport3.setReviewSet(new HashSet<>(Arrays.asList(review3)));
 
-        /*crew1.setFlightSet(new HashSet<>(Arrays.asList(flight1, flight2)));
+        crew1.setFlightSet(new HashSet<>(Arrays.asList(flight1, flight2)));
         crew2.setFlightSet(new HashSet<>(Arrays.asList(flight1)));
         crew3.setFlightSet(new HashSet<>(Arrays.asList(flight2)));
-        crew1.setFlightSet(new HashSet<>(Arrays.asList(flight1, flight2)));*/
+        crew1.setFlightSet(new HashSet<>(Arrays.asList(flight1, flight2)));
 
-        /*plane1.setFlightSet(new HashSet<>(Arrays.asList(flight1)));
+        plane1.setFlightSet(new HashSet<>(Arrays.asList(flight1)));
         plane3.setFlightSet(new HashSet<>(Arrays.asList(flight2)));
         plane1.setReviewSet(new HashSet<>(Arrays.asList(review1)));
         plane2.setReviewSet(new HashSet<>(Arrays.asList(review2)));
-        plane3.setReviewSet(new HashSet<>(Arrays.asList(review3)));*/
+        plane3.setReviewSet(new HashSet<>(Arrays.asList(review3)));
 
-        /*flight1.setCrewSet(new HashSet<>(Arrays.asList(crew1, crew2, crew4)));
-        flight2.setCrewSet(new HashSet<>(Arrays.asList(crew1, crew3, crew4)));*/
+        flight1.setCrewSet(new HashSet<>(Arrays.asList(crew1, crew2, crew4)));
+        flight2.setCrewSet(new HashSet<>(Arrays.asList(crew1, crew3, crew4)));
 
-        /*mechanic1.setReviewSet(new HashSet<>(Arrays.asList(review1, review3)));
-        mechanic2.setReviewSet(new HashSet<>(Arrays.asList(review2)));*/
+        mechanic1.setReviewSet(new HashSet<>(Arrays.asList(review1, review3)));
+        mechanic2.setReviewSet(new HashSet<>(Arrays.asList(review2)));
 
         /** logs **/
-        /*log.debug(airport1.toString());
-        log.debug(airport2.toString());
-        log.debug(airport3.toString());
+        log.info(airport1.toString());
+        log.info(airport2.toString());
+        log.info(airport3.toString());
 
-        log.debug(plane1.toString());
-        log.debug(plane2.toString());
-        log.debug(plane3.toString());
+        log.info(plane1.toString());
+        log.info(plane2.toString());
+        log.info(plane3.toString());
 
-        log.debug(crew1.toString());
-        log.debug(crew2.toString());
-        log.debug(crew3.toString());
-        log.debug(crew4.toString());
+        log.info(crew1.toString());
+        log.info(crew2.toString());
+        log.info(crew3.toString());
+        log.info(crew4.toString());
 
-        log.debug(flight1.toString());
-        log.debug(flight1.toString());
+        log.info(flight1.toString());
+        log.info(flight1.toString());
 
-        log.debug(mechanic1.toString());
-        log.debug(mechanic1.toString());
+        log.info(mechanic1.toString());
+        log.info(mechanic1.toString());
 
-        log.debug(review1.toString());
-        log.debug(review2.toString());
-        log.debug(review3.toString());*/
+        log.info(review1.toString());
+        log.info(review2.toString());
+        log.info(review3.toString());
 
         /** operations **/
-        /*this.airportRepository.save(airport1);
+        this.airportRepository.save(airport1);
         this.airportRepository.save(airport2);
-        this.airportRepository.save(airport3);*/
+        this.airportRepository.save(airport3);
     }
 
 }

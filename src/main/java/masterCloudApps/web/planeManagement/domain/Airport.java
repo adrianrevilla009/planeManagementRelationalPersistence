@@ -1,16 +1,15 @@
 package masterCloudApps.web.planeManagement.domain;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.Set;
 
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
+@Getter
+@Setter
 public class Airport {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

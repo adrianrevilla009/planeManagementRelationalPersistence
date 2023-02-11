@@ -1,9 +1,7 @@
 package masterCloudApps.web.planeManagement.domain;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDateTime;
 import java.util.Set;
@@ -11,7 +9,8 @@ import java.util.Set;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
+@Getter
+@Setter
 public class Flight {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -41,4 +40,6 @@ public class Flight {
         this.departureTime = departureTime;
         this.flightHours = flightHours;
     }
+
+
 }
