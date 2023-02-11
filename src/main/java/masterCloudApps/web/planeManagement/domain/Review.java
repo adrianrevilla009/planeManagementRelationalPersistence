@@ -15,16 +15,16 @@ public class Review {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Plane plane;
     private Date startDate;
     private Date endDate;
     private Double workHours;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Mechanic mechanic;
     private ReviewType reviewType;
     private String description;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Airport airport;
 
     public Review(Plane plane, Date startDate, Date endDate, Double workHours, Mechanic mechanic, ReviewType reviewType, String description, Airport airport) {

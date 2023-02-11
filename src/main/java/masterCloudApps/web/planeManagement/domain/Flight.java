@@ -17,11 +17,11 @@ public class Flight {
     private long id;
     private String code;
     private String company;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Plane plane;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Airport origin;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Airport destination;
     private LocalDateTime departureTime;
     private Double flightHours;
