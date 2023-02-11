@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -13,8 +12,6 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@ToString
-@Table(name = "crew")
 public class Crew {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -25,7 +22,7 @@ public class Crew {
     private Position position;
     private String company;
 
-    @ManyToMany(mappedBy = "proyectos")
+    @ManyToMany(mappedBy = "crewSet")
     private Set<Flight> flightSet;
 
     public Crew(String code, String firstName, String lastName, Position position, String company) {

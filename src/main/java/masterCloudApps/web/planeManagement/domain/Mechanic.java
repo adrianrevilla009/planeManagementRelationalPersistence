@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 import java.util.Set;
 
@@ -12,8 +11,6 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@ToString
-@Table(name = "mechanic")
 public class Mechanic {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -24,7 +21,7 @@ public class Mechanic {
     private String company;
     private int jobStartYear;
 
-    @OneToMany(cascade=CascadeType.ALL, mappedBy="review")
+    @OneToMany(cascade=CascadeType.ALL, mappedBy="mechanic")
     private Set<Review> reviewSet;
 
     public Mechanic(String code, String firstName, String surname, String company, int jobStartYear) {

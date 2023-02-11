@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 import java.util.Date;
 import java.util.Set;
@@ -13,8 +12,6 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@ToString
-@Table(name = "review")
 public class Review {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

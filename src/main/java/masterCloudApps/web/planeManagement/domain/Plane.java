@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 import java.util.Set;
 
@@ -12,8 +11,6 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@ToString
-@Table(name = "plane")
 public class Plane {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -26,7 +23,7 @@ public class Plane {
     @OneToMany(cascade=CascadeType.ALL, mappedBy="plane")
     private Set<Flight> flightSet;
 
-    @OneToMany(cascade=CascadeType.ALL, mappedBy="review")
+    @OneToMany(cascade=CascadeType.ALL, mappedBy="plane")
     private Set<Review> reviewSet;
 
     public Plane(String plate, String manufacturer, String model, Double flightHours) {

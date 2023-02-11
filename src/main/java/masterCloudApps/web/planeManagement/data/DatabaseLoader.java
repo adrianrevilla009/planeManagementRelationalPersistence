@@ -1,8 +1,10 @@
 package masterCloudApps.web.planeManagement.data;
 
 import masterCloudApps.web.planeManagement.domain.*;
+import masterCloudApps.web.planeManagement.repository.AirportRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -16,6 +18,9 @@ import java.util.HashSet;
 public class DatabaseLoader implements CommandLineRunner {
 
     private static final Logger log = LoggerFactory.getLogger(DatabaseLoader.class);
+
+    @Autowired
+    private AirportRepository airportRepository;
 
     @Override
     public void run(String... args) {
@@ -56,25 +61,25 @@ public class DatabaseLoader implements CommandLineRunner {
         airport2.setReviewSet(new HashSet<>(Arrays.asList(review2)));
         airport3.setReviewSet(new HashSet<>(Arrays.asList(review3)));
 
-        crew1.setFlightSet(new HashSet<>(Arrays.asList(flight1, flight2)));
+        /*crew1.setFlightSet(new HashSet<>(Arrays.asList(flight1, flight2)));
         crew2.setFlightSet(new HashSet<>(Arrays.asList(flight1)));
         crew3.setFlightSet(new HashSet<>(Arrays.asList(flight2)));
-        crew1.setFlightSet(new HashSet<>(Arrays.asList(flight1, flight2)));
+        crew1.setFlightSet(new HashSet<>(Arrays.asList(flight1, flight2)));*/
 
-        plane1.setFlightSet(new HashSet<>(Arrays.asList(flight1)));
+        /*plane1.setFlightSet(new HashSet<>(Arrays.asList(flight1)));
         plane3.setFlightSet(new HashSet<>(Arrays.asList(flight2)));
         plane1.setReviewSet(new HashSet<>(Arrays.asList(review1)));
         plane2.setReviewSet(new HashSet<>(Arrays.asList(review2)));
-        plane3.setReviewSet(new HashSet<>(Arrays.asList(review3)));
+        plane3.setReviewSet(new HashSet<>(Arrays.asList(review3)));*/
 
-        flight1.setCrewSet(new HashSet<>(Arrays.asList(crew1, crew2, crew4)));
-        flight2.setCrewSet(new HashSet<>(Arrays.asList(crew1, crew3, crew4)));
+        /*flight1.setCrewSet(new HashSet<>(Arrays.asList(crew1, crew2, crew4)));
+        flight2.setCrewSet(new HashSet<>(Arrays.asList(crew1, crew3, crew4)));*/
 
-        mechanic1.setReviewSet(new HashSet<>(Arrays.asList(review1, review3)));
-        mechanic2.setReviewSet(new HashSet<>(Arrays.asList(review2)));
+        /*mechanic1.setReviewSet(new HashSet<>(Arrays.asList(review1, review3)));
+        mechanic2.setReviewSet(new HashSet<>(Arrays.asList(review2)));*/
 
         /** logs **/
-        log.debug(airport1.toString());
+        /*log.debug(airport1.toString());
         log.debug(airport2.toString());
         log.debug(airport3.toString());
 
@@ -95,10 +100,12 @@ public class DatabaseLoader implements CommandLineRunner {
 
         log.debug(review1.toString());
         log.debug(review2.toString());
-        log.debug(review3.toString());
+        log.debug(review3.toString());*/
 
         /** operations **/
-
+        /*this.airportRepository.save(airport1);
+        this.airportRepository.save(airport2);
+        this.airportRepository.save(airport3);*/
     }
 
 }
