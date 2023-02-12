@@ -41,5 +41,14 @@ public class Flight {
         this.flightHours = flightHours;
     }
 
-
+    @Override
+    public String toString() {
+        return "Flight{" +
+                "id=" + id +
+                ", code='" + code + '\'' +
+                ", company='" + company + '\'' +
+                ", departureTime=" + departureTime +
+                ", flightHours=" + flightHours +
+                '}';
+    }
 }

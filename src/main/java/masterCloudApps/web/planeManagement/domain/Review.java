@@ -37,4 +37,17 @@ public class Review {
         this.description = description;
         this.airport = airport;
     }
+
+    @Override
+    public String toString() {
+        return "Review{" +
+                "id=" + id +
+                ", plane=" + plane +
+                ", startDate=" + startDate +
+                ", endDate=" + endDate +
+                ", workHours=" + workHours +
+                ", reviewType=" + reviewType +
+                ", description='" + description + '\'' +
+                '}';
+    }
 }

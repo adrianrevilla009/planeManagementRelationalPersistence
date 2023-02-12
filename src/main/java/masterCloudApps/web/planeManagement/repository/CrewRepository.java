@@ -27,4 +27,17 @@ public interface CrewRepository extends JpaRepository<Crew, Long> {
             "where c.code = :code", nativeQuery = true)
     List<Crew> findCrewOriginCities(@Param("code") String code);
 
+    @Query(value = "select c.first_name as name, c.last_name as surname, count(c.id) as numberFlights, " +
+            "sum(f.flight_hours) as sumFlightTime from crew c " +
+            "inner join flight_crew fc on fc.crew_id = c.id " +
+            "inner join flight f on fc.flight_id = f.id " +
+            "group by c.id", nativeQuery = true)
+    List<ICrewDto> findCrewNumberFlightsInterfaceProjection();
+
+    @Query(value = "select c.* from crew c " +
+            "inner join flight_crew fc on fc.crew_id = c.id " +
+            "inner join flight f on fc.flight_id = f.id " +
+            "order by c.id", nativeQuery = true)
+    List<Crew> findCrewNumberFlights();
+
 }

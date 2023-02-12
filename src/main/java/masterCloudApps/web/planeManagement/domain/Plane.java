@@ -31,4 +31,12 @@ public class Plane {
         this.model = model;
         this.flightHours = flightHours;
     }
+
+    public Plane(long id, String plate, String manufacturer, String model, Double flightHours) {
+        this.id = id;
+        this.plate = plate;
+        this.manufacturer = manufacturer;
+        this.model = model;
+        this.flightHours = flightHours;
+    }
 }

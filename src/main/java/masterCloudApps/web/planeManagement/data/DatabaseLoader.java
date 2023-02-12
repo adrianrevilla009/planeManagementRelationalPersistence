@@ -125,7 +125,8 @@ public class DatabaseLoader implements CommandLineRunner {
         List<IPlaneDto> iPlaneDtoList = this.planeRepository.findPlaneMechanicsProjectionInterface();
         System.out.println("Plane mechanics from reviews (projection)");
         System.out.println("------------------------------------------");
-        iPlaneDtoList.forEach(System.out::println);
+        iPlaneDtoList.forEach(p -> System.out.println("Review name: " + p.getName() + " Mechanic name: " + p.getMechanicName() +
+                " Mechanic surname: " + p.getMechanicSurname()));
 
         List<Plane> planeList = this.planeRepository.findPlaneMechanics();
         System.out.println("Plane mechanics from reviews");
@@ -135,7 +136,9 @@ public class DatabaseLoader implements CommandLineRunner {
         List<IFlightDto> iFlightDtoList = this.flightRepository.findFlightByOriginAndDateProjectionInterface(flight1.getOrigin().getName(), flight1.getDepartureTime());
         System.out.println("Flights from origin airport and departure date (projection)");
         System.out.println("------------------------------------------");
-        iFlightDtoList.forEach(System.out::println);
+        iFlightDtoList.forEach(p -> System.out.println("Company: " + p.getCompany() + " Origin airport: " + p.getOriginAirport() +
+                " Destination airport: " + p.getDestinationAirport() + " Departure time: " + p.getDepartureTime() +
+                " Flight hours: " + p.getFlightHours()));
 
         List<Flight> flightList = this.flightRepository.findFlightByOriginAndDate(flight1.getOrigin().getName(), flight1.getDepartureTime());
         System.out.println("Flights from origin airport and departure date");
@@ -145,12 +148,24 @@ public class DatabaseLoader implements CommandLineRunner {
         List<ICrewDto> iCrewDtoList = this.crewRepository.findCrewOriginCitiesInterfaceProjection(crew1.getCode());
         System.out.println("Crew members and origin cities from code (projection)");
         System.out.println("------------------------------------------");
-        iCrewDtoList.forEach(System.out::println);
+        iCrewDtoList.forEach(p -> System.out.println("Name: " + p.getName() + " Surname: " + p.getSurname() +
+                " City: " + p.getCity()));
 
         List<Crew> crewList = this.crewRepository.findCrewOriginCities(crew1.getCode());
         System.out.println("Crew members and origin cities from code");
         System.out.println("------------------------------------------");
         crewList.forEach(System.out::println);
+
+        List<ICrewDto> iCrewDtoList2 = this.crewRepository.findCrewNumberFlightsInterfaceProjection();
+        System.out.println("Crew members and number of flights and hours (projection)");
+        System.out.println("------------------------------------------");
+        iCrewDtoList2.forEach(p -> System.out.println("Name: " + p.getName() + " Surname: " + p.getSurname() +
+                " Flight hours: " + p.getSumFlightTime() + " Number flights: " + p.getNumberFlights()));
+
+        List<Crew> crewList2 = this.crewRepository.findCrewNumberFlights();
+        System.out.println("Crew members and number of flights and hours");
+        System.out.println("------------------------------------------");
+        crewList2.forEach(System.out::println);
 
     }
 

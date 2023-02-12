@@ -31,4 +31,16 @@ public class Crew {
         this.position = position;
         this.company = company;
     }
+
+    @Override
+    public String toString() {
+        return "Crew{" +
+                "id=" + id +
+                ", code='" + code + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", position=" + position +
+                ", company='" + company + '\'' +
+                '}';
+    }
 }

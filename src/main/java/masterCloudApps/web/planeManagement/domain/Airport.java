@@ -32,4 +32,15 @@ public class Airport {
         this.city = city;
         this.country = country;
     }
+
+    @Override
+    public String toString() {
+        return "Airport{" +
+                "id=" + id +
+                ", iataCode='" + iataCode + '\'' +
+                ", name='" + name + '\'' +
+                ", city='" + city + '\'' +
+                ", country='" + country + '\'' +
+                '}';
+    }
 }

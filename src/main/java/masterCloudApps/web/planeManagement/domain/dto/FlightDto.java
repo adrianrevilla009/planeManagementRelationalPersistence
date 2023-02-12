@@ -70,4 +70,16 @@ public class FlightDto {
     public void setFlightHours(Double flightHours) {
         this.flightHours = flightHours;
     }
+
+    @Override
+    public String toString() {
+        return "FlightDto{" +
+                "code='" + code + '\'' +
+                ", company='" + company + '\'' +
+                ", originAirport='" + originAirport + '\'' +
+                ", destinationAirport='" + destinationAirport + '\'' +
+                ", departureTime=" + departureTime +
+                ", flightHours=" + flightHours +
+                '}';
+    }
 }

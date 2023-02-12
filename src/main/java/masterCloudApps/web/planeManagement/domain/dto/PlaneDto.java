@@ -39,4 +39,13 @@ public class PlaneDto {
     public void setMechanicSurname(String mechanicSurname) {
         this.mechanicSurname = mechanicSurname;
     }
+
+    @Override
+    public String toString() {
+        return "PlaneDto{" +
+                "name='" + name + '\'' +
+                ", mechanicName='" + mechanicName + '\'' +
+                ", mechanicSurname='" + mechanicSurname + '\'' +
+                '}';
+    }
 }

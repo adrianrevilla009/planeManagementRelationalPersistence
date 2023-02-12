@@ -30,4 +30,16 @@ public class Mechanic {
         this.company = company;
         this.jobStartYear = jobStartYear;
     }
+
+    @Override
+    public String toString() {
+        return "Mechanic{" +
+                "id=" + id +
+                ", code='" + code + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", surname='" + surname + '\'' +
+                ", company='" + company + '\'' +
+                ", jobStartYear=" + jobStartYear +
+                '}';
+    }
 }

@@ -4,4 +4,6 @@ public interface ICrewDto {
     String getName();
     String getSurname();
     String getCity();
+    Integer getNumberFlights();
+    Integer getSumFlightTime();
 }
