@@ -1,7 +1,14 @@
 package masterCloudApps.web.planeManagement.data;
 
 import masterCloudApps.web.planeManagement.domain.*;
+import masterCloudApps.web.planeManagement.domain.dto.ICrewDto;
+import masterCloudApps.web.planeManagement.domain.dto.IFlightDto;
+import masterCloudApps.web.planeManagement.domain.dto.IPlaneDto;
+import masterCloudApps.web.planeManagement.domain.dto.PlaneDto;
 import masterCloudApps.web.planeManagement.repository.AirportRepository;
+import masterCloudApps.web.planeManagement.repository.CrewRepository;
+import masterCloudApps.web.planeManagement.repository.FlightRepository;
+import masterCloudApps.web.planeManagement.repository.PlaneRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +20,7 @@ import java.time.Month;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
 
 @Component
 public class DatabaseLoader implements CommandLineRunner {
@@ -21,6 +29,12 @@ public class DatabaseLoader implements CommandLineRunner {
 
     @Autowired
     private AirportRepository airportRepository;
+    @Autowired
+    private PlaneRepository planeRepository;
+    @Autowired
+    private FlightRepository flightRepository;
+    @Autowired
+    private CrewRepository crewRepository;
 
     @Override
     public void run(String... args) {
@@ -106,6 +120,38 @@ public class DatabaseLoader implements CommandLineRunner {
         this.airportRepository.save(airport1);
         this.airportRepository.save(airport2);
         this.airportRepository.save(airport3);
+
+        /** queries **/
+        List<IPlaneDto> iPlaneDtoList = this.planeRepository.findPlaneMechanicsProjectionInterface();
+        System.out.println("Plane mechanics from reviews (projection)");
+        System.out.println("------------------------------------------");
+        iPlaneDtoList.forEach(System.out::println);
+
+        List<Plane> planeList = this.planeRepository.findPlaneMechanics();
+        System.out.println("Plane mechanics from reviews");
+        System.out.println("------------------------------------------");
+        planeList.forEach(System.out::println);
+
+        List<IFlightDto> iFlightDtoList = this.flightRepository.findFlightByOriginAndDateProjectionInterface(flight1.getOrigin().getName(), flight1.getDepartureTime());
+        System.out.println("Flights from origin airport and departure date (projection)");
+        System.out.println("------------------------------------------");
+        iFlightDtoList.forEach(System.out::println);
+
+        List<Flight> flightList = this.flightRepository.findFlightByOriginAndDate(flight1.getOrigin().getName(), flight1.getDepartureTime());
+        System.out.println("Flights from origin airport and departure date");
+        System.out.println("------------------------------------------");
+        flightList.forEach(System.out::println);
+
+        List<ICrewDto> iCrewDtoList = this.crewRepository.findCrewOriginCitiesInterfaceProjection(crew1.getCode());
+        System.out.println("Crew members and origin cities from code (projection)");
+        System.out.println("------------------------------------------");
+        iCrewDtoList.forEach(System.out::println);
+
+        List<Crew> crewList = this.crewRepository.findCrewOriginCities(crew1.getCode());
+        System.out.println("Crew members and origin cities from code");
+        System.out.println("------------------------------------------");
+        crewList.forEach(System.out::println);
+
     }
 
 }
